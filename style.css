@@ -1,0 +1,102 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, #fe604f 0%, #edfe00 100%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    padding: 20px;
+}
+
+.container {
+    background-color: white;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    width: 500px;
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+.container:hover {
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+}
+
+h2 {
+    font-size: 26px;
+    color: #333;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.bmi-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.bmi-form label {
+    text-align: left;
+    font-size: 16px;
+    color: #555;
+}
+
+.bmi-form input, .bmi-form select {
+    padding: 10px;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    font-size: 16px;
+    transition: border-color 0.3s ease;
+}
+
+.bmi-form input:focus, .bmi-form select:focus {
+    outline: none;
+    border-color: #007bff;
+}
+
+button {
+    padding: 12px;
+    background-color: #070707;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 18px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #257337;
+}
+
+#result {
+    margin-top: 20px;
+    font-size: 20px;
+    font-weight: bold;
+    padding: 15px;
+    border-radius: 10px;
+    display: none; /* Initially hidden */
+}
+
+/* Result Colors */
+.green {
+    background-color: #d4edda;
+    color: #155724;
+}
+
+.orange {
+    background-color: #fff3cd;
+    color: #856404;
+}
+
+.red {
+    background-color: #f8d7da;
+    color: #721c24;
+}

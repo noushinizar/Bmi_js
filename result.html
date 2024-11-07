@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BMI Result</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .result-normal {
+            color: green;
+        }
+        .result-underweight {
+            color: orange;
+        }
+        .result-overweight,
+        .result-obese {
+            color: red;
+        }
+        .result-container {
+            padding: 20px;
+            border-radius: 5px;
+            /* border: 1px solid #ccc; */
+            margin: 20px 0;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h2>Your BMI Result</h2>
+        <div id="bmiResult" class="result-container"></div>
+        <button onclick="goBack()">Go Back</button>
+    </div>
+
+    <script>
+        // Function to load the BMI result from localStorage
+        function loadBMIResult() {
+            let bmi = localStorage.getItem('bmi');
+            let category = localStorage.getItem('category');
+            let advice = localStorage.getItem('advice');
+            let age = localStorage.getItem('age');
+            let gender = localStorage.getItem('gender');
+
+            // Determine the class based on BMI category
+            let categoryClass;
+            if (category.includes("underweight")) {
+                categoryClass = "result-underweight";
+            } else if (category.includes("normal")) {
+                categoryClass = "result-normal";
+            } else if (category.includes("overweight") || category.includes("obese")) {
+                categoryClass = "result-overweight";
+            } else {
+                categoryClass = "result-obese";
+            }
+
+            // Display the result with appropriate styling
+            document.getElementById('bmiResult').innerHTML = `
+                <p>Your BMI is: <strong>${bmi}</strong></p>
+                <p class="${categoryClass}">Category: <strong>${category}</strong></p>
+                <p>Advice: ${advice}</p>
+                <p>Age: ${age}, Gender: ${gender.charAt(0).toUpperCase() + gender.slice(1)}</p>
+            `;
+        }
+
+        // Call the function to load the BMI result when the page loads
+        window.onload = loadBMIResult;
+
+        // Function to go back to the calculator page
+        function goBack() {
+            window.location.href = 'index.html';
+        }
+    </script>
+</body>
+</html>
